@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block title %}INDEXPAGE{% endblock %}
+
+{% block content %}
+    <h1>Home</h1>
+    <a href="{% url 'events'%}">Even</a>
+    {% for c in instance%}
+    <div class="w-50 mx-auto my-5 p-3 text-white text-center bg-success border border-warning rounded">
+        <h2>{{c.customer_name}}</h2>
+        <p>{{c.customer_address}}</p>
+    </div>
+    {%endfor%}
+{% endblock %}  
