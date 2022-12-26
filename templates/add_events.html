@@ -1,9 +1,9 @@
 {% extends 'base.html'%}
 
-{% block title %}Customer PAGE{% endblock %}
+{% block title %}Create Events PAGE{% endblock %}
 
 {% block content %}
-    <h1 class="my-5 text-center">CUSTOMER INFORMATIONS</h1>
+    <h1 class="my-5 text-center">Create Events</h1>
     <form class="my-2 text-center" action="" method="POST">
         {%csrf_token%}
         {{form.as_p}}

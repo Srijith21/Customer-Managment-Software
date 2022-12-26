@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+
+{% block title %}INDEXPAGE{% endblock %}
+
+{% block content %}
+    <div class="text-center mx-auto my-5">
+        <h1 class="">CUSTOMERS LIST</h1>
+        <h4 class="my-3">TOTAL CUSTOMERS: {{customers_count}}</h4>
+        <a class="btn btn-primary " href="{% url 'customer'%}" role="button">Add Customer</a>
+        
+    </div>
+    
+    
+    <div class="d-flex flex-row  flex-wrap">
+        {% for c in instance%}
+        <div style="width:45%;" class="class=  p-3 my-2  mx-auto text-white text-center bg-success border border-warning rounded" >
+            <h2>Name : {{c.customer_name}}</h2>
+            <p>Address: {{c.customer_address}}</p>
+            <p>Email : {{c.customer_email}}</p>
+            <p>Phonde Number : {{c.customer_number}}</p>
+            <p>Date Of Birth : {{c.customer_dob}}</p>
+            <a href="{% url 'customerupdate' c.id%}" class="btn btn-primary my-2 btn-sm">EDIT</a>
+            
+            <form action="{% url 'deleteupdate' c.id%}" method="POST">
+                {% csrf_token%}
+                <button type="submit" class="btn btn-primary btn-sm"> Delete</button>
+            </form>
+        </div>
+        {%endfor%}
+    </div>
+    
+    
+    
+{% endblock %} 

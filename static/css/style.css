@@ -1,3 +1,7 @@
 h1{
-    color: red;
+    color: rgb(2, 54, 22);
+    margin: 12px auto;
+}
+label {
+    cursor: pointer;
 }

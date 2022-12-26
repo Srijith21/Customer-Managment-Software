@@ -1,9 +1,85 @@
 {% extends 'base.html'%}
 
-{% block title %}EVENT PAGE {% endblock %}
+{% block title %}EVENT PAGE{% endblock %}
 
 {% block content %}
-    <h1>EVENT</h1>
-   
+    <div class="text-center mx-auto my-5">
+        <h1 class="my-3">EVENTS LIST</h1>
+        <a class="btn btn-primary " href="{% url 'add_events'%}" role="button">Add Events</a>
+    </div>
 
-{% endblock %}
+<!-- ...................................sorting................. -->
+
+<div class="filter-section" id="hamburger-menu">
+    <h6 class="text-center my-2">SORT EVENTS</h6>
+    <form action="">
+        <div class="filter text-center">
+            <label class="radio">
+                <input
+                    type="radio"
+                    name="sort"
+                    value="all"
+                />
+                <span class="radio"></span>
+                <span class="label"
+                    >All Events</span>
+            </label>
+            <br>
+            <label class="radio">
+                <input
+                    type="radio"
+                    name="sort"
+                    value="today"
+                />
+                <span class="radio"></span>
+                <span class="label"
+                    >Today</span>
+            </label>
+            <br>
+
+            <label class="radio">
+                <input
+                    type="radio"
+                    name="sort"
+                    value="week"
+                />
+                <span class="radio"></span>
+                <span class="label"
+                    >This Week</span
+                >
+            </label>
+            <br>
+            <label class="radio">
+                <input
+                    type="radio"
+                    name="sort"
+                    value="month"
+                />
+                <span class="radio"></span>
+                <span class="label"
+                    >This Month</span>
+            </label>
+            <br>
+            <input class="my-2" type="submit" value="Filter" />
+        </div>
+    </form>
+</div>
+
+
+<h4 class="text-center my-3">NO.OF EVENTS: {{events_count}}</h4>
+<!-- ...................................sorting end................. -->
+
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;" class=" ">
+        {% for e in event_instance %}
+        <div style="width: 70%;" class="card mx-auto my-5 p-3 text-white text-center bg-danger border border-warning rounded">
+            <h2 class="card-title">{{e.Event_type}}</h2>
+            <p>{{e.customer_name}}</p>
+            <p>{{e.event_date|date}}</p>
+            <a class="btn btn-info" href="{% url 'eventdetails' e.id%}">VIEW DETAILS</a>
+        </div>
+        {%endfor%}
+    </div>
+    
+
+
+{% endblock %}  

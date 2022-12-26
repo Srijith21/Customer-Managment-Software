@@ -1,5 +1,5 @@
 from django import forms
-from .models import Customer
+from .models import Customer,Event
 
 
 class DateInput(forms.DateInput):
@@ -13,9 +13,26 @@ class CustomerForm(forms.ModelForm):
             'customer_dob': DateInput(),
         }
         labels ={
-            'customer_name ' : "Customer Name",
-            'customer_email ' : "Email Address",
-            'customer_address ' : " Address",
-            'customer_number ' : " Phone Number",
-            'customer_dob ' : "Choose The Date",
+            "customer_name"  : "Customer Name",
+            "customer_email" : "Email Address",
+            "customer_address" : " Address",
+            "customer_number" : " Mobile Number",
+            "customer_dob" : "Choose The Date",
+        }
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        exclude = ('tag'),
+        fields = '__all__'
+        widgets ={
+            'event_date': DateInput(),
+        }
+        labels ={
+            "Event_type" : "Event Type",
+            "Event_time_type" : "Repetition",
+             
+            "customer_name" : "Name of the customer",
+            "is_published" : "Publish",
+            
         }

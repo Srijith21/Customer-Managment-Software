@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title %}EVENT DETAILS{% endblock %}
+
+{% block content %}
+    <div class="text-center mx-auto my-5">
+        <h2 class="">EVENT DETAILS</h2>
+    </div>
+    {% for e in event_instance %}
+    <div class="w-50 mx-auto my-5 p-3 text-white text-center bg-danger border border-warning rounded">
+        <h2>{{e.Event_type}}</h2>
+        <p>{{e.customer_name}}</p>
+        <p>{{e.Event_time_type}}</p>
+        <p>{{e.event_date|date}}</p>
+    </div>
+    {%endfor%}
+{% endblock %}  

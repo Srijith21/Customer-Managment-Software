@@ -3,12 +3,15 @@
 {% block title %}INDEXPAGE{% endblock %}
 
 {% block content %}
-    <h1>Home</h1>
-    <a href="{% url 'events'%}">Even</a>
-    {% for c in instance%}
-    <div class="w-50 mx-auto my-5 p-3 text-white text-center bg-success border border-warning rounded">
-        <h2>{{c.customer_name}}</h2>
-        <p>{{c.customer_address}}</p>
+    <h1 class="text-center my-5 ">Welcome !!!!</h1>
+    <div style="height: 350px; background-color: rgba(255,0,0,0.1);" class="d-flex flex-row  flex-wrap">
+        <div style="width:45%;" class=" p-3 my-2  mx-auto text-white text-center bg-success border border-warning rounded " >
+            <h2 class="my-5">TOTAL CUSTOMERS: {{customers_count}}</h2>
+            <a class="btn btn-primary my-3" href="{% url 'customer'%}" role="button">Add Customer</a>
+        </div>
+        <div style="width:45%;" class="class=  p-3 my-2  mx-auto text-white text-center bg-success border border-warning rounded" >
+            <h2 class="my-5">TOTAL EVENTS: {{events_count}}</h2>
+            <a class="btn btn-primary my-3" href="{% url 'add_events'%}" role="button">Add Events</a>
+        </div> 
     </div>
-    {%endfor%}
-{% endblock %}  
+{% endblock %} 
